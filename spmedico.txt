@@ -1,0 +1,44 @@
+CLinica
+nome 
+cnpj
+razao social
+endereço
+id
+
+Usuario
+descricao
+
+Prontuario
+id
+nome
+email
+datanasc
+telefone
+rg
+cpf
+endereço
+
+Especialidade
+id
+nome
+
+Medico
+id
+crm
+nome
+email
+fk especialidade
+fk clinica 
+
+situaçao
+id
+tiposituaçao
+
+Consulta
+fk medico
+fk paciente
+data e hora consulta
+fk situaçao
+
+
+
