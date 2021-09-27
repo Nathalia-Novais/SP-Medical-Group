@@ -1,4 +1,5 @@
-﻿using senai.MedicalGroup.webApi.Domains;
+﻿using Microsoft.AspNetCore.Http;
+using senai.MedicalGroup.webApi.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +17,12 @@ namespace senai.MedicalGroup.webApi.Interfaces
 
         void Atualizar(short idUsuario, Usuario UsuarioAtualizado);
 
-        void Deletar(int Usuario);
+        void Deletar(int idUsuario);
 
         Usuario Login(string email, string senha);
+
+        string SalvarPerfilDir(IFormFile foto, int id_usuario);
+
+        string ConsultarPerfilDir(int id_usuario);
     }
 }

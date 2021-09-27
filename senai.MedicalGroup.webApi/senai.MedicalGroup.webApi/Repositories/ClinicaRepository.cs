@@ -1,4 +1,5 @@
-﻿using senai.MedicalGroup.webApi.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using senai.MedicalGroup.webApi.Context;
 using senai.MedicalGroup.webApi.Domains;
 using senai.MedicalGroup.webApi.Interfaces;
 using System;
@@ -16,7 +17,7 @@ namespace senai.MedicalGroup.webApi.Repositories
         {
             Clinica clinicaBuscada = ctx.Clinicas.Find(idClinica);
 
-            if (ClinicaAtualizada.NomeClinica != null)
+            if (ClinicaAtualizada != null )
             {
                 clinicaBuscada.NomeClinica = ClinicaAtualizada.NomeClinica;
                 clinicaBuscada.Cnpj = ClinicaAtualizada.Cnpj;

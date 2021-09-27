@@ -24,6 +24,9 @@ SELECT * FROM SITUACAO
 
 --SELECIONAR TODAS AS CONSULTAS
 SELECT * FROM CONSULTA
+UPDATE CONSULTA SET descricao = 'teste'
+WHERE idConsulta  = 11 ;
+
 
 --Mostrar a quantidade de usuários 
  SELECT  COUNT (*) [Quantidade de Usuários] FROM USUARIO

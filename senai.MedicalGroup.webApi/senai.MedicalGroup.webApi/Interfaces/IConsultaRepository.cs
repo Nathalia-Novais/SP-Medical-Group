@@ -16,13 +16,13 @@ namespace senai.MedicalGroup.webApi.Interfaces
 
         void Atualizar(short idConsulta, Consulta ConsultaAtualizada);
 
-        void Deletar(int Consulta);
+        void Deletar(int idConsulta);
 
-        List<Consulta> ListarMinhas(int idUsuario);
-
+        //Mudar a situação da consulta
         void Agendamento(int idConsulta, string status);
 
-        void descricao(int idConsulta, string statusP);
+        void Descricao(short idConsulta, Consulta statusP);
+
 
     }
 }
