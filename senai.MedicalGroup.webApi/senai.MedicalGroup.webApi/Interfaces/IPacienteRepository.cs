@@ -8,6 +8,14 @@ namespace senai.MedicalGroup.webApi.Interfaces
 {
     interface IPacienteRepository
     {
-        List<Consulta> ListarMinhas(int idUsuario);
+        List<Paciente> Listar();
+
+        Paciente BuscarPorId(int idPaciente);
+
+        void Cadastrar(Paciente novoPaciente);
+
+        void Atualizar(short idPaciente, Paciente PacienteAtualizado);
+
+        void Deletar(int idPaciente);
     }
 }

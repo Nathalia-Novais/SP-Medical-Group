@@ -4,5 +4,26 @@
         <name>senai.MedicalGroup.webApi</name>
     </assembly>
     <members>
+        <member name="M:senai.MedicalGroup.webApi.Interfaces.IConsultaRepository.Agendamento(System.Int32,System.String)">
+            <summary>
+            Mudar a situação da consulta
+            </summary>
+            <param name="idConsulta">id da consulta que será mudado </param>
+            <param name="status">o status que será mudado</param>
+        </member>
+        <member name="M:senai.MedicalGroup.webApi.Interfaces.IConsultaRepository.ListarM(System.Int32)">
+            <summary>
+            Listar Todas as consultas de um médico
+            </summary>
+            <param name="idUsuario">id do Usuario que está logado</param>
+            <returns></returns>
+        </member>
+        <member name="M:senai.MedicalGroup.webApi.Interfaces.IConsultaRepository.ListarP(System.Int32)">
+            <summary>
+            Listar Todas as consultas de um paciente
+            </summary>
+            <param name="idUsuario">id do Usuario que está logado</param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

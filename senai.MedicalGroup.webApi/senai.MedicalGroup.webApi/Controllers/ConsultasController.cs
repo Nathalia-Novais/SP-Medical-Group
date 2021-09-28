@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai.MedicalGroup.webApi.Domains;
 using senai.MedicalGroup.webApi.Interfaces;
 using senai.MedicalGroup.webApi.Repositories;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,6 +19,7 @@ namespace senai.MedicalGroup.webApi.Controllers
     [ApiController]
     public class ConsultasController : ControllerBase
     {
+        
         private IConsultaRepository _consultaRepository { get; set; }
 
         public ConsultasController()
@@ -36,6 +39,7 @@ namespace senai.MedicalGroup.webApi.Controllers
             return Ok(_consultaRepository.BuscarPorId(idConsulta));
         }
 
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Cadastrar(Consulta novaConsulta)
         {
@@ -44,6 +48,7 @@ namespace senai.MedicalGroup.webApi.Controllers
             return StatusCode(201);
         }
 
+        [Authorize(Roles = "1")]
         [HttpPut("{idConsulta}")]
         public IActionResult Atualizar(short idConsulta, Consulta ConsultaAtualizada)
         {
@@ -52,6 +57,7 @@ namespace senai.MedicalGroup.webApi.Controllers
             return StatusCode(204);
         }
 
+        [Authorize(Roles = "1")]
         [HttpDelete("{idConsulta}")]
         public IActionResult Deletar(int idConsulta)
         {
@@ -60,7 +66,7 @@ namespace senai.MedicalGroup.webApi.Controllers
             return StatusCode(204);
         }
 
-
+        [Authorize(Roles = "1")]
         [HttpPatch("{idConsulta}")]
         public IActionResult Agendamento(int idConsulta, Consulta status)
         {
@@ -76,7 +82,8 @@ namespace senai.MedicalGroup.webApi.Controllers
             }
         }
 
-        [HttpPatch("mudar/{idConsulta}")]
+        [Authorize(Roles = "2")]
+        [HttpPatch("prontuario/{idConsulta}")]
         public IActionResult Descricao(short idConsulta, Consulta statusP)
         {
             try
@@ -89,6 +96,67 @@ namespace senai.MedicalGroup.webApi.Controllers
             {
 
                 return BadRequest(erro);
+            }
+        }
+
+        [Authorize(Roles = "2")]
+        [HttpGet("medico")]
+        public IActionResult ListarM()
+        {
+            try
+            {
+                int idMedico = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+
+                List<Consulta> lista = _consultaRepository.ListarM(idMedico);
+                if (lista.Count == 0)
+                {
+                    
+                    return BadRequest(new
+                    {
+                        Mensagem = "Esse Medico não tem consultas relacionada a ele "
+                    });
+                }
+
+                return Ok(_consultaRepository.ListarM(idMedico));
+
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(new
+                { mensagem = "Não é possível visualizar as consultas se o usuário não estiver logado!",
+                    erro 
+                });
+            }
+        }
+
+        [Authorize(Roles = "3")]
+        [HttpGet("paciente")]
+        public IActionResult ListarP()
+        {
+
+            try
+            {
+                short idPaciente = Convert.ToInt16(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+
+                List<Consulta> lista = _consultaRepository.ListarP(idPaciente);
+                if (lista.Count == 0)
+                {
+                    return BadRequest(new
+                    {
+                        Mensagem = "O paciente não tem consulta "
+                    });
+                }
+
+                return Ok(lista);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(new
+                {
+                    mensagem = "Não é possível visualizar as consultas se o usuário não estiver logado!", erro
+                });
             }
         }
     }

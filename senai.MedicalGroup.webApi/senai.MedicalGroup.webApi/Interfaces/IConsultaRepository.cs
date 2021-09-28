@@ -18,11 +18,30 @@ namespace senai.MedicalGroup.webApi.Interfaces
 
         void Deletar(int idConsulta);
 
-        //Mudar a situação da consulta
+       
+
+        /// <summary>
+        /// Mudar a situação da consulta
+        /// </summary>
+        /// <param name="idConsulta">id da consulta que será mudado </param>
+        /// <param name="status">o status que será mudado</param>
         void Agendamento(int idConsulta, string status);
 
         void Descricao(short idConsulta, Consulta statusP);
 
+        /// <summary>
+        /// Listar Todas as consultas de um médico
+        /// </summary>
+        /// <param name="idUsuario">id do Usuario que está logado</param>
+        /// <returns></returns>
+        List<Consulta> ListarM(int idUsuario);
+
+        /// <summary>
+        /// Listar Todas as consultas de um paciente
+        /// </summary>
+        /// <param name="idUsuario">id do Usuario que está logado</param>
+        /// <returns></returns>
+        List<Consulta> ListarP(int idUsuario);
 
     }
 }

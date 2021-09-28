@@ -108,5 +108,19 @@ namespace senai.MedicalGroup.webApi.Repositories
 
         }
 
+        public List<Consulta> ListarM(int idUsuario)
+        {
+            return ctx.Consulta.Include(c => c.IdMedicoNavigation.IdUsuarioNavigation)
+              .Where(c => c.IdMedicoNavigation.IdUsuarioNavigation.IdUsuario == idUsuario)
+              .ToList();
+
+        }
+
+        public List<Consulta> ListarP(int idUsuario)
+        {
+            return ctx.Consulta.Include(c => c.IdPacienteNavigation.IdUsuarioNavigation)
+                .Where(c => c.IdPacienteNavigation.IdUsuarioNavigation.IdUsuario == idUsuario)
+                .ToList();
+        }
     }
 }

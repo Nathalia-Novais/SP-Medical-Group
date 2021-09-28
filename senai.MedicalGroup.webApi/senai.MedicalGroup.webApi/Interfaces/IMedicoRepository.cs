@@ -8,10 +8,14 @@ namespace senai.MedicalGroup.webApi.Interfaces
 {
     interface IMedicoRepository
     {
-        //Mudar A Descrição da consulta
-        void descricao(int idConsulta, string statusP);
+        List<Medico> Listar();
 
+        Medico BuscarPorId(int idMedico);
 
-        List<Consulta> ListarMinhas(int idUsuario);
+        void Cadastrar(Medico novoMedico);
+
+        void Atualizar(short idMedico, Medico MedicoAtualizado);
+
+        void Deletar(int idMedico);
     }
 }

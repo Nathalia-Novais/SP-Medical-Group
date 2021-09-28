@@ -13,11 +13,48 @@ namespace senai.MedicalGroup.webApi.Repositories
     {
         SpMedicalContex ctx = new();
 
-        public List<Consulta> ListarMinhas(int idPaciente)
+        public void Atualizar(short idPaciente, Paciente PacienteAtualizado)
         {
-            return ctx.Consulta.Include(p => p.IdPacienteNavigation.IdUsuarioNavigation.IdTipoUsuarioNavigation)
-                .Where(p => p.IdPaciente == idPaciente)
-                .ToList();
+            Paciente pacienteBuscado = ctx.Pacientes.Find(idPaciente);
+
+            if (PacienteAtualizado != null)
+            {
+                pacienteBuscado.NomePaciente = PacienteAtualizado.NomePaciente;
+                pacienteBuscado.DataNascimento = PacienteAtualizado.DataNascimento;
+                pacienteBuscado.Telefone = PacienteAtualizado.Telefone;
+                pacienteBuscado.Rg = PacienteAtualizado.Rg;
+                pacienteBuscado.Cpf = PacienteAtualizado.Cpf;
+                pacienteBuscado.Endereco = PacienteAtualizado.Endereco;
+          
+
+                ctx.Pacientes.Update(pacienteBuscado);
+
+                ctx.SaveChanges();
+            }
+        }
+
+        public Paciente BuscarPorId(int idPaciente)
+        {
+            return ctx.Pacientes.FirstOrDefault(p => p.IdPaciente == idPaciente);
+        }
+
+        public void Cadastrar(Paciente novoPaciente)
+        {
+            ctx.Pacientes.Add(novoPaciente);
+
+            ctx.SaveChanges();
+        }
+
+        public void Deletar(int idPaciente)
+        {
+            ctx.Pacientes.Remove(BuscarPorId(idPaciente));
+
+            ctx.SaveChanges();
+        }
+
+        public List<Paciente> Listar()
+        {
+            return ctx.Pacientes.ToList();
         }
     }
 }

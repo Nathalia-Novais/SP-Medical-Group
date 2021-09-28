@@ -263,7 +263,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"email\": \"ligia@gmail.com\",\r\n        \"senha\": \"912\"\r\n}\r\n",
+							"raw": "{\r\n      \"email\": \"ligia@gmail.com\",\r\n        \"senha\": \"912\"\r\n        \r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -512,7 +512,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/consultas/mudar/11",
+							"raw": "http://localhost:5000/api/consultas/prontuario/11",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -521,8 +521,322 @@
 							"path": [
 								"api",
 								"consultas",
-								"mudar",
+								"prontuario",
 								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta.ListarPacientes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/consultas/paciente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"consultas",
+								"paciente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta.ListarMedicos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxpZ2lhQGdtYWlsLmNvbSIsImp0aSI6IjUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIzIiwiZXhwIjoxNjMyODUzNjY5LCJpc3MiOiJNZWRpY2FsRy53ZWJBUEkiLCJhdWQiOiJNZWRpY2FsRy53ZWJBUEkifQ.MQW9QLTOdBDn0jI01ixtBb9J0bgnd81PCzoCyFN_SB0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/consultas/medico",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"consultas",
+								"medico"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Medico",
+			"item": [
+				{
+					"name": "Medico.ListarTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/medicos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"medicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Medico.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"idEspecialidade\": 7,\r\n        \"idClinica\": 1,\r\n        \"crm\": \"18946-SP\",\r\n        \"nomeMedico\": \"Teste\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/medicos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"medicos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Medico.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/medicos/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"medicos",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Medico.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/medicos/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"medicos",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Medico.AtualizarIdUrl",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idEspecialidade\": 10,\r\n    \"idClinica\": 1,\r\n    \"crm\": \"18946-SP\",\r\n    \"nomeMedico\": \"Teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/medicos/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"medicos",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Paciente",
+			"item": [
+				{
+					"name": "Paciente.ListarTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/pacientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"pacientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Paciente.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomePaciente\": \"teste\",\r\n        \"dataNascimento\": \"1983-10-13T00:00:00\",\r\n        \"telefone\": \"11 34888-7654\",\r\n        \"rg\": \"4372543-5\",\r\n        \"cpf\": \"94839000\",\r\n        \"endereco\": \"Rua Estado de Israel 240, São Paulo, Estado de São Paulo, 04022-000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/pacientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"pacientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Paciente.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/pacientes/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"pacientes",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Paciente.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/pacientes/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"pacientes",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Paciente.AtualizarIdUrl",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomePaciente\": \"teste 3\",\r\n    \"dataNascimento\": \"1983-10-13T00:00:00\",\r\n    \"telefone\": \"11 34888-7654\",\r\n    \"rg\": \"4372543-5\",\r\n    \"cpf\": \"94839000\",\r\n    \"endereco\": \"Rua Estado de Israel 240, São Paulo, Estado de São Paulo, 04022-000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/pacientes/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"pacientes",
+								"10"
 							]
 						}
 					},

@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using senai.MedicalGroup.webApi.Domains;
 using senai.MedicalGroup.webApi.Interfaces;
 using senai.MedicalGroup.webApi.Repositories;
 using System;
@@ -22,24 +24,41 @@ namespace senai.MedicalGroup.webApi.Controllers
             _pacienteRepository = new PacienteRepository();
         }
 
-
+       
         [HttpGet]
-        public IActionResult ListarMinhas()
+        public IActionResult Listar()
         {
-            try
-            {
-                int idPaciente = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+            return Ok(_pacienteRepository.Listar());
+        }
 
-                return Ok(_pacienteRepository.ListarMinhas(idPaciente));
-            }
-            catch (Exception error)
-            {
-                return BadRequest(new
-                {
-                    mensagem = "Não é possível mostrar as presenças se o usuário não estiver logado!",
-                    error
-                });
-            }
+        [HttpGet("{idPaciente}")]
+        public IActionResult BuscarPorId(int idPaciente)
+        {
+            return Ok(_pacienteRepository.BuscarPorId(idPaciente));
+        }
+
+        [HttpPost]
+        public IActionResult Cadastrar(Paciente novoPaciente)
+        {
+            _pacienteRepository.Cadastrar(novoPaciente);
+
+            return StatusCode(201);
+        }
+
+        [HttpPut("{idPaciente}")]
+        public IActionResult Atualizar(short idPaciente, Paciente PacienteAtualizado)
+        {
+            _pacienteRepository.Atualizar(idPaciente, PacienteAtualizado);
+
+            return StatusCode(204);
+        }
+
+        [HttpDelete("{idPaciente}")]
+        public IActionResult Deletar(int idPaciente)
+        {
+            _pacienteRepository.Deletar(idPaciente);
+
+            return StatusCode(204);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai.MedicalGroup.webApi.Domains;
 using senai.MedicalGroup.webApi.Interfaces;
@@ -36,6 +37,7 @@ namespace senai.MedicalGroup.webApi.Controllers
             return Ok(_clinicaRepository.BuscarPorId(idClinica));
         }
 
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Cadastrar(Clinica novaClinica)
         {
@@ -44,6 +46,7 @@ namespace senai.MedicalGroup.webApi.Controllers
             return StatusCode(201);
         }
 
+        [Authorize(Roles = "1")]
         [HttpPut("{idClinica}")]
         public IActionResult Atualizar(short idClinica, Clinica ClinicaAtualizada)
         {
@@ -52,6 +55,7 @@ namespace senai.MedicalGroup.webApi.Controllers
             return StatusCode(204);
         }
 
+        [Authorize(Roles = "1")]
         [HttpDelete("{idClinica}")]
         public IActionResult Deletar(int idClinica)
         {
