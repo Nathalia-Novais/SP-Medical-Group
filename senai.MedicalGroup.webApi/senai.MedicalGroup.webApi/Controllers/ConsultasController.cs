@@ -137,7 +137,7 @@ namespace senai.MedicalGroup.webApi.Controllers
 
             try
             {
-                short idPaciente = Convert.ToInt16(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+                int idPaciente = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
 
                 List<Consulta> lista = _consultaRepository.ListarP(idPaciente);
                 if (lista.Count == 0)
