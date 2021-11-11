@@ -1,0 +1,316 @@
+body {
+    background-color: #f2f5f7;
+    font-family: "Open Sans", "Raleway", Arial, sans-serif;
+    color: #808080;
+  }
+  
+  .container {
+    width: 94%;
+    margin: 0 auto;
+  }
+  
+  /* Header */
+  
+  .cabecalhoPrincipal {
+    background-color: #fff;
+    padding: 7px 0;
+    -webkit-box-shadow: 0px 2px 2px 0px rgba(128, 128, 128, 0.21);
+    -moz-box-shadow: 0px 2px 2px 0px rgba(128, 128, 128, 0.21);
+    box-shadow: 8px 10px 20px 0px rgb(128 128 128 / 21%);
+    border: 20px solid #9799a6;
+    border: 3px solid #3582FF;
+      border-radius: 14px
+  ;
+  }
+  
+  .cabecalhoPrincipal .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .cabecalhoPrincipal-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 45px;
+  }
+  
+  
+  .cabecalhoPrincipal-titulo {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 7px;
+  }
+  
+  .cabecalhoPrincipal img {
+    width: 41px;
+  }
+  
+  .cabecalhoPrincipal-titulo a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a {
+    text-decoration: none;
+    margin-top: 7px;
+    margin-right: 25px  ;
+      margin-left: 27px;
+  }
+  
+  .logo_e_letra{
+    display: flex;
+      align-items: center;
+      margin-left: 35px;
+  }
+  
+  .logo_e_letra p{
+    margin-left: 20px;
+  }
+  
+  .cabecalhoPrincipal-nav-link {
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #9799a6;
+    background-color: #fff;
+    text-decoration: none;
+    transition: 0.5s;
+    display: block;
+    border-bottom: 1px solid #9799a6;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .sair{
+    color: #3582FF;
+  }
+
+  /* main */
+
+.titulo-e-imagem{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+      margin-top: 40px;
+  }
+  
+  .titulo-e-imagem img {
+    width: 69%;
+    margin-top: 21px;
+    margin-right: 231px;
+    margin-bottom: 44px;
+}
+  
+  .medico-botao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nome{
+    margin-right: 167px;
+  }
+  
+  .titulo-linha{
+    margin-left: 115px;
+  }
+  
+  .titulo-linha h1{
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    color: #8B8787;
+    font-family: OdorMeanChey;
+    margin-left: 62px;
+  }
+
+    
+  
+  .linha {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    color: #3582FF;
+    margin: 25px 0px;
+  }
+  
+  .linha {
+    border: solid 1px #3582FF;
+    width: 332px;
+    height: 0px;
+  }
+  
+  .btn {
+    margin-top: 52px;
+        border: none;
+        color: white;
+        border-radius: 5px ;
+        width: 30%;
+        padding: 10px 52px ;
+        text-transform: uppercase;
+        font-size: 11px;
+        background-color: #3582ff;
+        box-shadow: 3px 2px 4px 1px rgb(128 128 128 / 56%);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 10px;
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+  }
+
+  .btn:hover {
+    background-color: #fff;
+    color: #3683ff;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(184, 184, 184, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(184, 184, 184, 1);
+    box-shadow: 2px 2px 5px 0px rgba(184, 184, 184, 1);
+  }
+  
+  .div-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 0px;
+    width: 92%;
+  }
+
+  .btn-hr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+  }
+
+  /* form */
+
+  .formulario {
+    background-color: #3582ff7a;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 20px;
+    width: 66%;
+    border-radius: 19px;
+    box-shadow: 3px 2px 4px 1px rgb(128 128 128 / 56%);
+
+}
+
+.formulario form{
+  display: flex;
+    flex-direction: column;
+    width: 77%;
+
+}
+
+.formulario input{
+  padding: 16px ;
+      border-style: solid;
+      border-bottom-width: 3px ;
+      border-top-width: 0;
+      border-right-width: 0;
+      border-left-width: 0;
+      border-color: #3582ff;
+      background-color: transparent;
+      color: black;
+      margin-top: 20px;
+}
+
+.formulario input:hover,
+.formulario input:focus {
+  border: 0;
+  border-bottom: 3px solid #0d00fe;
+  text-align: center;
+  background: transparent;
+  color: #595959;
+  text-align: left;
+}
+
+.formulario ::placeholder {
+  color:black;
+}
+
+.form-cadastro{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  align-items: center;
+  margin-top: 58px;
+}
+
+.btn-cadastro input{
+  
+    border: none;
+    color: white;
+    width: 29%;
+    font-size: 13px;
+    background-color: #3582ff;
+    box-shadow: 3px 2px 4px 1px rgb(128 128 128 / 56%);
+    cursor: pointer;
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 10px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+
+}
+
+.btn-cadastro:hover input {
+  background-color: #fff;
+  color: #3683ff;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(184, 184, 184, 1);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(184, 184, 184, 1);
+  box-shadow: 2px 2px 5px 0px rgba(184, 184, 184, 1);
+}
+
+
+.btn-cadastro{
+  display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-top: 22px;
+}
+
+/* footer */
+
+footer {
+  display: flex;
+  background-color: #fff;
+  border: 3px solid #3582FF;
+  border-radius: 14px;
+  flex-direction: row;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+  margin-top: 113px;
+}
+
+footer img{ 
+    display: flex;
+    width: 2%;
+    align-items: center;
+    margin-right: 20px;
+}
+
+footer p{
+  font-size: 13px;
+}
+  
+
+
+
+  
+  

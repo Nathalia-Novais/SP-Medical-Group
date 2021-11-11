@@ -1,0 +1,247 @@
+body {
+  background-color: #f2f5f7;
+  font-family: "Open Sans", "Raleway", Arial, sans-serif;
+  color: #808080;
+}
+
+.container {
+  width: 94%;
+  margin: 0 auto;
+}
+
+/* Header */
+
+.cabecalhoPrincipal {
+  background-color: #fff;
+  padding: 7px 0;
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(128, 128, 128, 0.21);
+  -moz-box-shadow: 0px 2px 2px 0px rgba(128, 128, 128, 0.21);
+  box-shadow: 8px 10px 20px 0px rgb(128 128 128 / 21%);
+  border: 20px solid #9799a6;
+  border: 3px solid #3582FF;
+    border-radius: 14px
+;
+}
+
+.cabecalhoPrincipal .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cabecalhoPrincipal-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 45px;
+}
+
+
+.cabecalhoPrincipal-titulo {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 7px;
+}
+
+.cabecalhoPrincipal img {
+  width: 47px;
+}
+
+.cabecalhoPrincipal-titulo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+  margin-top: 14px;
+  margin-right: 25px  ;
+    margin-left: 27px;
+}
+
+.logo_e_letra{
+  display: flex;
+    align-items: center;
+    margin-left: 35px;
+}
+
+.logo_e_letra p{
+  margin-left: 20px;
+}
+
+.cabecalhoPrincipal-nav-link {
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #9799a6;
+  background-color: #fff;
+  text-decoration: none;
+  transition: 0.5s;
+  display: block;
+  border-bottom: 1px solid #9799a6;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sair{
+  color: #3582FF;
+}
+
+/* Fim do Header */
+
+/* main */
+
+.titulo-e-imagem{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+    margin-top: 40px;
+    margin-bottom: 74px;
+}
+
+.titulo-e-imagem img{
+  width: 80%;
+}
+
+.medico-botao{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nome{
+  margin-right: 167px;
+}
+
+.titulo-linha{
+  margin-left: 86px;
+}
+
+.titulo-linha h1{
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+  color: #8B8787;
+  font-family: OdorMeanChey;
+}
+
+.titulo-linha-2{
+margin-left: 191px;
+margin-top: 46px;
+}
+
+
+.linha {
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  color: #3582FF;
+  margin: 25px 0px;
+}
+
+.linha {
+  border: solid 1px #3582FF;
+  width: 292px;
+  height: 0px;
+}
+
+
+
+
+/* section */
+
+
+.section-lista {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.section-lista button{
+  margin-left: 1059px;
+   margin-top: 59px;
+   cursor: pointer;
+   color: rgb(139 135 135);;
+   background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;  
+    font-size: 16px;
+
+}
+
+  .lista {
+    display: flex;
+    background-color: #3582ff54;
+    padding: 7px;
+    margin-top: 13px;
+    width: 86%;
+    border-radius: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: flex-end;
+    height: 195px;
+    box-shadow: 17px 20px 10px 0px rgb(0 0 0 / 39%);
+}
+
+
+
+.lista li{
+  margin-bottom: 10px;
+  color: #000;
+
+}
+
+.lista ul{
+  margin-left: 84px;
+}
+
+.imagem{
+  margin-right: 118px;
+  width: 17%;
+}
+/* fim da section */
+
+.div-separar{
+    margin-top: 57px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+}
+.separar-img{ 
+  display: flex;
+  width: 5%;
+  align-items: center;
+}
+ 
+
+/* fim da main */
+
+/* footer */
+
+footer {
+  display: flex;
+  background-color: #fff;
+  border: 3px solid #3582FF;
+  border-radius: 14px;
+  flex-direction: row;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+  margin-top: 113px;
+}
+
+footer img{ 
+    display: flex;
+    width: 2%;
+    align-items: center;
+    margin-right: 20px;
+}
+
+footer p{
+  font-size: 13px;
+}

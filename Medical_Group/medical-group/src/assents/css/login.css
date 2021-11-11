@@ -1,0 +1,176 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+
+ .retangulo1 {
+  height: 44px;
+  width: 369px;
+  background-image: linear-gradient( to bottom, #42c1dc, #3bdfff47);
+  border-radius: 23px 24px 5px 5px;
+}
+
+ .retangulo2 {
+  height: 39px;
+  width: 368px;
+  background-image: linear-gradient( to top, #42c1dc, #3bdfff47);
+  margin-top: 61px;
+  border-radius: 7px 8px 23px 21px;
+}  
+
+
+.container-login {
+  width: 100vw;
+  margin: 0 auto;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Itens da Tela de Login */
+.img-login {
+  width: 50vw;
+  height: 100vh;
+  background-image: url("../imagem/cdc-XLhDvfz0sUM-unsplash\ 1.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+
+.img-login::after {
+  content: "";
+  position: fixed;
+  background-color: white;
+  z-index: 10000;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 159px;
+  height: 116vh;
+  transform: rotate(8deg);
+  transform-origin: 0% 0%;
+}
+
+
+/* Ícones e Inputs de Login */
+
+.item-login {
+  width: 50vw;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+
+}
+
+.row {
+  width: auto;
+}
+
+.icone-login {
+  width: 23%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.item {
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+}
+
+/* Textos tela de login */
+.text-login {
+  font-size: 12px;
+  opacity: 0.6;
+  margin-bottom: 20px;
+}
+
+.senha-login {
+  font-size: 9px;
+  margin-top: 10px;
+  opacity: 0.5;
+}
+
+.input-login {
+  border: 0;
+  width: 350px;
+  border-bottom: 1px solid #e6e6e6;
+  text-align: center;
+  padding: 10px;
+  background: transparent;
+  color: #808080;
+  text-align: left;
+}
+
+.input-login:hover,
+.input-login:focus {
+  border: 0;
+  border-bottom: 1px solid #30e2ba;
+  text-align: center;
+  background: transparent;
+  color: #595959;
+  text-align: left;
+}
+
+
+
+/* Botões de login */
+
+.btn {
+  margin-top: 10px;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  width: 70%;
+  padding: 10px 52px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 10px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.btn-login {
+  background-color: #3683ff;
+  color: #fff;
+  box-shadow: 2px 2px 5px 0px rgb(184 184 184);
+  width: 40%;
+  border-radius: 12px;
+}
+
+.btn-login:hover {
+  background-color: #fff;
+  color: #3683ff;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(184, 184, 184, 1);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(184, 184, 184, 1);
+  box-shadow: 2px 2px 5px 0px rgba(184, 184, 184, 1);
+}
+
+
