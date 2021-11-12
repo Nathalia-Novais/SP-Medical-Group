@@ -12,8 +12,8 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      senha: '',
+      email: 'adm@gmail.com',
+      senha: 'adm123',
       erroMensagem: '',
       isLoading: false,
     };
@@ -29,7 +29,7 @@ class Login extends Component {
     })
 
       .then((resposta) => {
-        if (resposta.status === 201) {
+        if (resposta.status === 200) {
 
           localStorage.setItem('usuario-login', resposta.data.token);
           this.setState({ isLoading: false })
@@ -83,16 +83,17 @@ class Login extends Component {
                   <input
                     value={this.state.email}
                     onChange={this.atualizaStateCampo}
-                    className="input-login" placeholder="E-mail" type="text" name="username" id="login-email" />
+                    className="input-login" placeholder="E-mail" type="text" name="email" id="login-email" />
                 </div>
                 <div className="item">
                   <input
-                    value={this.state.email}
+                    value={this.state.senha}
                     onChange={this.atualizaStateCampo}
-                    className="input-login" placeholder="Senha" type="password" name="password" id="login-password" />
+                    className="input-login" placeholder="Senha" type="password" name="senha" id="login-password" />
                 </div>
                 <div className="item">
-                  <p style={{ color: 'red' }}>{this.state.erroMensagem}</p>
+                  {/* <p style={{ color: 'red' }}>{this.state.erroMensagem}</p> */}
+
                   {this.state.isLoading === true && (<button className="btn btn-login" id="btn-login"> Loading </button>)}
                   {this.state.isLoading === false && (<button className="btn btn-login" id="btn-login"
                     disabled={

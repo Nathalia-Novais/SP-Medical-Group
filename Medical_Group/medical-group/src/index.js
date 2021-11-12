@@ -13,13 +13,14 @@ import {
 
 import Login from './pages/login/login';
 import NotFound from './pages/notFound/NotFound';
-
+import AdmListar from './pages/admlistar/admlistar';
 
 const routing = (
   <Router>
     <div>
     <Switch>
-     <Route path="/" component={Login} />
+     <Route exact path="/" component={Login} />
+     <Route path="/admlistar" component={AdmListar} />
      <Route path="/notFound" component={NotFound} />
     </Switch>
     </div>

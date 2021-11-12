@@ -177,7 +177,8 @@ margin-top: 46px;
   display: flex;
   align-content: center;
   justify-content: center;
-  align-items: center
+  align-items: center;
+  flex-direction: column;
 }
 
   .lista {

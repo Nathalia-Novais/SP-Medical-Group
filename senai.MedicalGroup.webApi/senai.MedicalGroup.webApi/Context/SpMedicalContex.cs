@@ -33,7 +33,7 @@ namespace senai.MedicalGroup.webApi.Context
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 // optionsBuilder.UseSqlServer("Data Source=DESKTOP-2U1VKIV\\SQLEXPRESS; Initial Catalog=MED_GROUP_N; user id=sa; pwd=senai@132;");
-                optionsBuilder.UseSqlServer("Data Source=NOTE0113E4\\SQLEXPRESS; Initial Catalog=MED_GROUP_N;");
+                optionsBuilder.UseSqlServer("Data Source=NOTE0113I5\\SQLEXPRESS; initial catalog=MED_GROUP_N; integrated security = true");
             }
         }
 
