@@ -1,7 +1,10 @@
 
 import React, { Component } from "react";
 import axios from "axios";
-import '../../src/assents/css/login.css'
+import { parseJwt, usuarioAutenticado } from '../../services/auth';
+
+import '../../assents/css/login.css'
+import Logo from '../../assents/imagem/logo.png'
 
 
 class Login extends Component {
@@ -34,6 +37,16 @@ class Login extends Component {
           let base64 = localStorage.getItem('usuario-login').split('.')[1];
 
           console.log(base64)
+
+          if (parseJwt().role === '1') {
+
+            this.props.history.push('/admlistar');
+            console.log('estou logado: ' + usuarioAutenticado());
+          } else if(parseJwt().role === '2'){
+            this.props.history.push('/medicolistar');
+          } else {
+            this.props.history.push('/usuariolistar');
+          }
         }
       })
 
@@ -45,9 +58,11 @@ class Login extends Component {
       });
 
   }
-  atualizaState = (campo) => {
+
+  atualizaStateCampo = (campo) => {
     this.setState({ [campo.target.name]: campo.target.value });
   };
+
 
   render() {
     return (
@@ -61,22 +76,32 @@ class Login extends Component {
             <div className="retangulo1"></div>
             <div className="row">
               <div className="item">
-                <img src="imagem/logo_spmedgroup_v2 1.png" className="icone-login" alt="logo do Sp Medical Group" />
+                <img src={Logo} className="icone-login" alt="logo do Sp Medical Group" />
               </div>
-              <form onSubmit={() => this.efetualogin()} >
+              <form onSubmit={this.efetualogin} >
                 <div className="item">
                   <input
                     value={this.state.email}
-                    onChange={() => this.atualizaState()}
+                    onChange={this.atualizaStateCampo}
                     className="input-login" placeholder="E-mail" type="text" name="username" id="login-email" />
                 </div>
                 <div className="item">
-                  <input value={this.state.email}
-                    onChange={() => this.atualizaState()}
+                  <input
+                    value={this.state.email}
+                    onChange={this.atualizaStateCampo}
                     className="input-login" placeholder="Senha" type="password" name="password" id="login-password" />
                 </div>
                 <div className="item">
-                  <button className="btn btn-login" id="btn-login"> Login </button>
+                  <p style={{ color: 'red' }}>{this.state.erroMensagem}</p>
+                  {this.state.isLoading === true && (<button className="btn btn-login" id="btn-login"> Loading </button>)}
+                  {this.state.isLoading === false && (<button className="btn btn-login" id="btn-login"
+                    disabled={
+                      this.state.email === '' || this.state.senha === ''
+                        ? 'none'
+                        : ''
+                     }
+                    > Login </button>)}
+
                 </div>
               </form>
             </div>

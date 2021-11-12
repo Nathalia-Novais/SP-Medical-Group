@@ -11,13 +11,16 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import Login from './login/login';
+import Login from './pages/login/login';
+import NotFound from './pages/notFound/NotFound';
+
 
 const routing = (
   <Router>
     <div>
     <Switch>
      <Route path="/" component={Login} />
+     <Route path="/notFound" component={NotFound} />
     </Switch>
     </div>
 
