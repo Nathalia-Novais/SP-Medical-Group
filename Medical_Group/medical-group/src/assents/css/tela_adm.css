@@ -1,4 +1,4 @@
-body {
+.cor-body {
   background-color: #f2f5f7;
   font-family: "Open Sans", "Raleway", Arial, sans-serif;
   color: #808080;
@@ -148,7 +148,7 @@ margin-top: 46px;
       border: none;
       color: white;
       border-radius: 5px ;
-      width: 46%;
+      width: 100%;
       padding: 10px 52px ;
       text-transform: uppercase;
       font-size: 11px;
@@ -205,10 +205,11 @@ margin-top: 46px;
 }
 
 .lista ul{
-  margin-left: 84px;
+  margin-left: 134px;
+  font-size: large;
 }
 
-.imagem{
+.imagem {
   margin-right: 118px;
   width: 15%;
 }
@@ -224,8 +225,9 @@ margin-top: 46px;
 }
 .separar-img{ 
   display: flex;
-  width: 5%;
+  width: 3%;
   align-items: center;
+  margin-bottom: 15px;
 }
  
 
@@ -242,7 +244,7 @@ footer {
   justify-content: center;
   align-content: stretch;
   align-items: center;
-  margin-top: 113px;
+  margin-top: 38px;
 }
 
 footer img{ 

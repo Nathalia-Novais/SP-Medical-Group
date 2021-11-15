@@ -45,7 +45,7 @@ class Login extends Component {
           } else if(parseJwt().role === '2'){
             this.props.history.push('/medicolistar');
           } else {
-            this.props.history.push('/usuariolistar');
+            this.props.history.push('/pacientelistar');
           }
         }
       })
@@ -92,7 +92,7 @@ class Login extends Component {
                     className="input-login" placeholder="Senha" type="password" name="senha" id="login-password" />
                 </div>
                 <div className="item">
-                  {/* <p style={{ color: 'red' }}>{this.state.erroMensagem}</p> */}
+                  <p style={{ color: 'red' }}>{this.state.erroMensagem}</p>
 
                   {this.state.isLoading === true && (<button className="btn btn-login" id="btn-login"> Loading </button>)}
                   {this.state.isLoading === false && (<button className="btn btn-login" id="btn-login"

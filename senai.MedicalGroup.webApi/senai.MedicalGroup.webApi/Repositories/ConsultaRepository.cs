@@ -101,7 +101,9 @@ namespace senai.MedicalGroup.webApi.Repositories
         public List<Consulta> Listar()
         {
                return ctx.Consulta.Include(c => c.IdPacienteNavigation)
-              .Include(c => c.IdMedicoNavigation.IdEspecialidadeNavigation).ToList();
+              .Include(c => c.IdMedicoNavigation.IdEspecialidadeNavigation)
+              .Include(c => c.IdSituacaoNavigation)
+              .ToList();
 
            // return ctx.Consulta.ToList();
 
@@ -111,6 +113,9 @@ namespace senai.MedicalGroup.webApi.Repositories
         public List<Consulta> ListarM(int idUsuario)
         {
             return ctx.Consulta.Include(c => c.IdMedicoNavigation.IdUsuarioNavigation)
+               .Include(c => c.IdPacienteNavigation.IdUsuarioNavigation)
+                .Include(c => c.IdMedicoNavigation.IdEspecialidadeNavigation)
+                .Include(c => c.IdSituacaoNavigation)
               .Where(c => c.IdMedicoNavigation.IdUsuarioNavigation.IdUsuario == idUsuario)
               .ToList();
 
@@ -119,6 +124,9 @@ namespace senai.MedicalGroup.webApi.Repositories
         public List<Consulta> ListarP(int idUsuario)
         {
             return ctx.Consulta.Include(c => c.IdPacienteNavigation.IdUsuarioNavigation)
+                .Include(c => c.IdMedicoNavigation.IdUsuarioNavigation)
+                .Include(c => c.IdMedicoNavigation.IdEspecialidadeNavigation)
+                .Include(c => c.IdSituacaoNavigation)
                 .Where(c => c.IdPacienteNavigation.IdUsuarioNavigation.IdUsuario == idUsuario)
                 .ToList();
         }

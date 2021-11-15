@@ -7,13 +7,17 @@ import reportWebVitals from './reportWebVitals';
 import {
   Route,
   BrowserRouter as Router,
-  // Redirect,
+  Redirect,
   Switch,
 } from 'react-router-dom';
 
 import Login from './pages/login/login';
 import NotFound from './pages/notFound/NotFound';
 import AdmListar from './pages/admlistar/admlistar';
+import Paciente from './pages/pacientelistar/pacientelistar';
+import Medico from './pages/medicolistar/medicolistar';
+import CadastroAdm from './pages/cadastroadm/cadastroadm';
+
 
 const routing = (
   <Router>
@@ -21,7 +25,11 @@ const routing = (
     <Switch>
      <Route exact path="/" component={Login} />
      <Route path="/admlistar" component={AdmListar} />
+     <Route path="/pacientelistar" component={Paciente} />
+     <Route path="/medicolistar" component={Medico} />
+     <Route path="/cadastroadm" component={CadastroAdm} />
      <Route path="/notFound" component={NotFound} />
+     <Redirect to="/notFound" />
     </Switch>
     </div>
 

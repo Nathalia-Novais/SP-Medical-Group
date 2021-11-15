@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../../assents/css/tela_adm.css';
+import '../../assents/css/tela_paciente.css';
 import { Link } from 'react-router-dom';
 import Logo from '../../assents/imagem/logo.png'
-import iconeAdm from '../../assents/imagem/adm-icone.png'
+import iconeUsuario from '../../assents/imagem/icone-paciente.png'
 import medicos from '../../assents/imagem/medicos.png'
 import Imglista from '../../assents/imagem/imagem-lista.png'
 
-export default function AdmListar() {
+export default function PacienteListar() {
 
     const [ListarConsultas, setListarConsultas] = useState([]);
 
     function Consultas() {
-        axios('http://localhost:5000/api/Consultas', {
+        axios('http://localhost:5000/api/consultas/paciente', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
             }
@@ -35,48 +35,49 @@ export default function AdmListar() {
                 <header className="cabecalhoPrincipal">
                     <div className="container">
                         <div className="logo_e_letra">
-                            <img src={Logo} alt="Logo Sp Medical group" />
+                        <img src={Logo} alt="Logo Sp Medical group" />
                             <p>SP Medical Group</p>
                         </div>
 
 
                         <nav className="cabecalhoPrincipal-nav">
-                            <img src={iconeAdm} alt="" />
-                            <a>Área Do Adm</a>
+                            <img src={iconeUsuario} alt="icone do paciente" />
+                            <a>Área Do Paciente</a>
                             <Link to="/"> <a className="sair" href="">Sair</a></Link>
                         </nav>
                     </div>
                 </header>
             </div>
 
-            <main >
+            <main>
                 <div className="titulo-e-imagem">
                     <div className="titulo-linha">
                         <h1 className="nome">Listagem</h1>
-                        <div className="linha"></div>
+                        <hr className="linha"></hr>
 
                         <div className="titulo-linha-2">
-                            <h1>Consultas</h1>
-                            <div className="linha"></div>
+                            <h1> Minhas Consultas</h1>
+                            <hr className="linha"></hr>
                         </div>
 
                     </div>
 
                     <div className="medico-botao">
-                        <img src={medicos} alt="" />
-                        <Link to="/cadastroadm"><button className="btn">Nova Consultas</button></Link>
+                    <img src={medicos} alt="" />
                     </div>
 
                 </div>
 
                 {
                     ListarConsultas.map((consulta) => {
+                        
                         return (
                             <div className="juntar" key={consulta.idPaciente}>
                                 <div className="section-lista">
 
                                     <section className="lista">
                                         <ul>
+
 
                                         <li>Paciente: {consulta.idPacienteNavigation.nomePaciente}</li>
                                         <li>Médico: {consulta.idMedicoNavigation.nomeMedico} </li>
@@ -106,19 +107,20 @@ export default function AdmListar() {
                  
                 }
 
-
-
-
-
             </main>
 
-            <footer>
-                <img src={Logo} alt="Logo Sp Medical group" />
-                <p>SP Medical Group</p>
-            </footer> 
-            </body>
-           
 
-        </div>)
+            <footer>
+            <img src={Logo} alt="Logo Sp Medical group" />
+                <p>SP Medical Group</p>
+            </footer>
+            </body>
+          
+
+        </div>
+    )
+
+
+
 
 }

@@ -1,4 +1,4 @@
-body {
+.cor-body {
   background-color: #f2f5f7;
   font-family: "Open Sans", "Raleway", Arial, sans-serif;
   color: #808080;
@@ -182,7 +182,7 @@ margin-top: 46px;
     justify-content: space-between;
     align-content: space-between;
     align-items: flex-end;
-    height: 195px;
+    height: 203px;
     box-shadow: 17px 20px 10px 0px rgb(0 0 0 / 39%);
 }
 
@@ -195,12 +195,12 @@ margin-top: 46px;
 }
 
 .lista ul{
-  margin-left: 84px;
+  margin-left: 134px;
 }
 
 .imagem{
   margin-right: 118px;
-  width: 17%;
+  width: 15%;
 }
 /* fim da section */
 
@@ -214,8 +214,9 @@ margin-top: 46px;
 }
 .separar-img{ 
   display: flex;
-  width: 5%;
+  width: 3%;
   align-items: center;
+  margin-bottom: 15px;
 }
  
 
@@ -232,7 +233,7 @@ footer {
   justify-content: center;
   align-content: stretch;
   align-items: center;
-  margin-top: 113px;
+  margin-top: 38px;
 }
 
 footer img{ 
