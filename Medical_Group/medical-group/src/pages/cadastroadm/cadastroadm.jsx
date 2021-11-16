@@ -12,10 +12,10 @@ export default class cadastrar extends Component {
         super(props);
 
         this.state = {
-            nomePaciente: '',
-            nomeMedico: '',
-            dataConsulta: new Date(),
-            situacao: 'Agendada',
+            IdPaciente: 0,
+            IdMedico: 0,
+            DataHora: new Date(),
+            situacao: '',
             listaPacientes: [],
             listaMedicos: [],
             isLoading: false,
@@ -28,10 +28,10 @@ export default class cadastrar extends Component {
         this.setState({ isLoading: true });
 
         let consulta = {
-            nomePaciente: this.state.nomePaciente,
-            nomeMedico: this.state.nomeMedico,
-            dataConsulta: new Date(this.state.dataConsulta),
-            situacao: 'Agendada'
+            IdPaciente: this.state.IdPaciente,
+            IdMedico: this.state.IdMedico,
+            DataHora: new Date(this.state.DataHora),
+            IdSituacao: 1
         };
 
         axios.post('http://localhost:5000/api/Consultas', consulta, {
@@ -53,10 +53,60 @@ export default class cadastrar extends Component {
     };
 
     atualizaStateCampo = (campo) => {
+        console.log(campo.target.name)
+        console.log(campo.target.value)
         this.setState({ [campo.target.name]: campo.target.value });
     };
 
 
+    PacienteLista = () => {
+
+        axios('http://localhost:5000/api/Pacientes', {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
+            },
+        })
+            .then((resposta) => {
+
+                if (resposta.status === 200) {
+
+                    this.setState({ listaPacientes: resposta.data });
+                    console.log(this.state.listaPacientes);
+                }
+            })
+
+            .catch((erro) => console.log(erro));
+
+    };
+
+
+
+    MedicosLista = () => {
+
+        axios('http://localhost:5000/api/Medicos', {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
+            },
+        })
+            .then((resposta) => {
+
+                if (resposta.status === 200) {
+
+                    this.setState({ listaMedicos: resposta.data });
+                    console.log(this.state.listaMedicos);
+                }
+            })
+
+            .catch((erro) => console.log(erro));
+    };
+
+
+
+    componentDidMount(){
+        this.PacienteLista();
+        this.MedicosLista();
+    
+    }
 
 
 
@@ -105,44 +155,68 @@ export default class cadastrar extends Component {
                             <section className="formulario-c">
                                 <form onSubmit={this.cadastrarConsulta} >
 
-                                    <input type="text"
-                                        placeholder="Paciente:"
+                                    <select
                                         required
-                                        value={this.state.nomePaciente}
+                                        value={this.state.IdPaciente}
+                                        
                                         onChange={this.atualizaStateCampo}
-                                        name="nomePaciente"
-                                    />
-                                    <input type="text"
-                                        placeholder="Médico:"
-                                        value={this.state.nomeMedico}
+                                        name="IdPaciente"
+                                    >
+
+                                        <option value="0">Selecione o Paciente.</option>
+
+
+                                        {this.state.listaPacientes.map((p) => {
+
+                                            return (
+                                                <option key={p.idPaciente} value={p.idPaciente}>
+                                                    {p.nomePaciente}
+                                                </option>
+                                            );
+                                        })}
+
+                                    </select>
+                                    <select 
+
+                                        value={this.state.IdMedico}
+                                        
                                         onChange={this.atualizaStateCampo}
-                                        name="nomeMedico"
-                                        required />
+                                        name="IdMedico"
+                                        required >
 
-                                    <input type="text"
-                                        placeholder="Situação:"
-                                        value={this.state.situacao}
-                                        onChange={this.atualizaStateCampo} />
-                                    <input type="datetime" placeholder="Data/Hora:" required />
+                                        <option value="0">Selecione o Médico.</option>
 
-                                    {this.state.isLoading && (
+
+                                        {this.state.listaMedicos.map((p) => {                                          
+                                            return (
+                                                
+                                                <option key={p.idMedico} value={p.idMedico}>
+                                                    {p.nomeMedico}
+                                                </option>
+                                            );
+                                        })} 
+
+                                    </select>
+
+
+                                    <input type="Date" placeholder="Data:"
+                                     name="DataHora" value={this.DataHora}  
+                                     onChange={this.atualizaStateCampo}  required />
+
+                                    {this.state.isLoading === true && (
                                         <button type="submit" disabled>
                                             Loading...{' '}
                                         </button>
                                     )}
 
                                     {this.state.isLoading === false && (
-                                   <div className="btn-cadastro-c">
-                                   <input type="submit" value="Cadastrar" />
-                               </div>
+                                        <div className="btn-cadastro-c">
+                                            <input type="submit" value="Cadastrar" />
+                                        </div>
 
                                     )}
 
 
-
-                                    {/* <div className="btn-cadastro-c">
-                                        <input type="submit" value="Cadastrar" />
-                                    </div> */}
                                 </form>
                             </section>
                         </div>

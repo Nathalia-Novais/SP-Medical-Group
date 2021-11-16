@@ -104,8 +104,6 @@ export default function MeicoListar() {
                                     <button>Atualizar</button>
                                      <section className="lista">
                                             <ul>
-
-
                                                 <li>Paciente: {consulta.idPacienteNavigation.nomePaciente}</li>
                                                 <li>Médico: {consulta.idMedicoNavigation.nomeMedico} </li>
                                                 <li>Especialidade:{consulta.idMedicoNavigation.idEspecialidadeNavigation.nomeEspecialidade}</li>
