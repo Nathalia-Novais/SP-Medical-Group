@@ -31,7 +31,7 @@ export default class cadastrar extends Component {
             IdPaciente: this.state.IdPaciente,
             IdMedico: this.state.IdMedico,
             DataHora: new Date(this.state.DataHora),
-            IdSituacao: 1
+            IdSituacao: 3
         };
 
         axios.post('http://localhost:5000/api/Consultas', consulta, {
@@ -43,6 +43,7 @@ export default class cadastrar extends Component {
                 console.log(resposta)
                 if (resposta.status === 201) {
                     this.setState({ isLoading: false });
+                    this.props.history.push('/admlistar')
                 }
             })
             .catch((erro) => {
@@ -104,8 +105,7 @@ export default class cadastrar extends Component {
 
     componentDidMount(){
         this.PacienteLista();
-        this.MedicosLista();
-    
+        this.MedicosLista();  
     }
 
 
@@ -211,12 +211,11 @@ export default class cadastrar extends Component {
 
                                     {this.state.isLoading === false && (
                                         <div className="btn-cadastro-c">
-                                            <input type="submit" value="Cadastrar" />
+                                            <input type="submit" value="Cadastrar" />                                             
                                         </div>
-
                                     )}
 
-
+            
                                 </form>
                             </section>
                         </div>

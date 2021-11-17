@@ -10,6 +10,7 @@ import Imglista from '../../assents/imagem/imagem-lista.png'
 export default function MeicoListar() {
 
     const [ListarConsultas, setListarConsultas] = useState([]);
+    const [Descricao, setDescricao] = useState("");
 
     function Consultas() {
         axios('http://localhost:5000/api/Consultas/medico', {
@@ -26,34 +27,23 @@ export default function MeicoListar() {
 
     };
 
+    
+    function mudarDescricao() {
+
+        axios.patch('http://localhost:5000/api/Consultas/prontuario', {
+            headers : {
+                'Authorization' : 'Bearer ' + localStorage.getItem('usuario-login')
+            }
+        })
+        .then(response => {
+            if (response.status === 201) {
+                setDescricao( '' );
+            }
+        })
+        .catch(erro => console.log(erro) );
+    };
+    
     useEffect(Consultas, []);
-
-    // function mudardescricao(event) {
-    //     setIsLoading(true);
-
-    //     evento.preventDefault()
-
-    //     axios
-    //         .patch('http://spmedgroup-kaue.azurewebsites.net/api/consultas/descricao/' + idConsulta, {
-
-
-    //         }, {
-    //             headers: {
-    //                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
-    //             }
-    //         })
-    //         .then(resposta => {
-    //             if (resposta.status === 201) {
-    //                 console.log('Consulta cadastrada');
-
-    //                 listarConsultas();
-    //                 setIsLoading(false);
-    //             }
-    //         })
-    //         .catch(erro => console.log(erro), setInterval(() => {
-    //             setIsLoading(false)
-    //         }, 5000));
-    // }
 
     return (
         <div>
@@ -101,7 +91,11 @@ export default function MeicoListar() {
                             return (
                                 <div className="juntar" key={consulta.idPaciente}>
                                     <div className="section-lista">
-                                    <button>Atualizar</button>
+                                    <button onClick ={mudarDescricao}>Atualizar</button>                                   
+                                    <form>
+                                    <input type="text" />
+                                    </form>
+
                                      <section className="lista">
                                             <ul>
                                                 <li>Paciente: {consulta.idPacienteNavigation.nomePaciente}</li>
