@@ -12,8 +12,8 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'adm@gmail.com',
-      senha: 'adm123',
+      email: 'roberto.possarle@spmedicalgroup.com.br',
+      senha: '345',
       erroMensagem: '',
       isLoading: false,
     };

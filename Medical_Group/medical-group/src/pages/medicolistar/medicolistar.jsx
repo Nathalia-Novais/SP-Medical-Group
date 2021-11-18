@@ -10,7 +10,9 @@ import Imglista from '../../assents/imagem/imagem-lista.png'
 export default function MeicoListar() {
 
     const [ListarConsultas, setListarConsultas] = useState([]);
-    const [Descricao, setDescricao] = useState("");
+    const [descricaoAlterada, setDescricaoAlterada] = useState('')
+    const [idConsulta, setIdConsulta] = useState(0)
+    const [isLoading, setIsLoading] = useState(false);
 
     function Consultas() {
         axios('http://localhost:5000/api/Consultas/medico', {
@@ -27,23 +29,38 @@ export default function MeicoListar() {
 
     };
 
-    
-    function mudarDescricao() {
 
-        axios.patch('http://localhost:5000/api/Consultas/prontuario', {
-            headers : {
-                'Authorization' : 'Bearer ' + localStorage.getItem('usuario-login')
-            }
-        })
-        .then(response => {
-            if (response.status === 201) {
-                setDescricao( '' );
-            }
-        })
-        .catch(erro => console.log(erro) );
-    };
-    
+
     useEffect(Consultas, []);
+
+    function ativar(consulta) {
+        setIsLoading(true)
+        setIdConsulta(consulta.idConsulta)
+    }
+
+    function alterarDescricao(event) {
+        event.preventDefault()
+
+        axios.patch('http://localhost:5000/api/Consultas/prontuario/' + idConsulta,
+            {
+                descricao: descricaoAlterada
+            }, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
+            }
+        })
+            .then((response) => {
+                console.log(response)
+                if (response.status === 204) {
+                    console.log('Descrição alterada com sucesso!')
+                    setIsLoading(false)
+                    setDescricaoAlterada('')
+                    Consultas()
+                }
+            })
+            .catch(erro => console.log(erro))
+    }
+
 
     return (
         <div>
@@ -80,8 +97,7 @@ export default function MeicoListar() {
                         </div>
 
                         <div class="medico-botao">
-                            <img src={medicos} alt="" />
-                        </div>
+                            <img src={medicos} alt="" />                         </div>
 
                     </div>
 
@@ -89,14 +105,32 @@ export default function MeicoListar() {
                         ListarConsultas.map((consulta) => {
 
                             return (
-                                <div className="juntar" key={consulta.idPaciente}>
-                                    <div className="section-lista">
-                                    <button onClick ={mudarDescricao}>Atualizar</button>                                   
-                                    <form>
-                                    <input type="text" />
-                                    </form>
+                                <div className="juntar" key={consulta.idConsulta}>
 
-                                     <section className="lista">
+                                    <div>
+                                        {
+                                            setIsLoading === false &&
+                                            <button className="" onClick={() => ativar(consulta)}>Editar</button>
+                                        }
+                                        <form  onSubmit={alterarDescricao}>
+                                            <input type="text" value={descricaoAlterada} onChange={(campo) => setDescricaoAlterada(campo.target.value)} placeholder="Nova Descrição" />
+                                            {isLoading && (
+                                                <button disabled type='submit'>
+                                                    Carregando...
+                                                </button>
+                                            )}
+                                            {!isLoading && (
+                                                <button type='submit'>
+                                                    Alterar
+                                                </button>
+                                            )}
+                                        </form>
+                                    </div>
+
+
+                                    <div className="section-lista">
+
+                                        <section className="lista">
                                             <ul>
                                                 <li>Paciente: {consulta.idPacienteNavigation.nomePaciente}</li>
                                                 <li>Médico: {consulta.idMedicoNavigation.nomeMedico} </li>
@@ -125,6 +159,9 @@ export default function MeicoListar() {
                     }
 
 
+
+
+
                 </main>
 
 
@@ -139,3 +176,5 @@ export default function MeicoListar() {
         </div>)
 
 }
+
+
