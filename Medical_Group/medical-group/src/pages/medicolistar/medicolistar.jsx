@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../../assents/css/tela_adm.css';
+import '../../assents/css/tela_medico.css';
 import { Link } from 'react-router-dom';
 import Logo from '../../assents/imagem/logo.png'
 import iconeMedico from '../../assents/imagem/medico-icone.png'
@@ -10,8 +10,8 @@ import Imglista from '../../assents/imagem/imagem-lista.png'
 export default function MeicoListar() {
 
     const [ListarConsultas, setListarConsultas] = useState([]);
-    const [descricaoAlterada, setDescricaoAlterada] = useState('')
-    const [idConsulta, setIdConsulta] = useState(0)
+    const [idConsulta, setIdConsulta] = useState('');
+    const [descricao, setDescricao] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
     function Consultas() {
@@ -28,38 +28,39 @@ export default function MeicoListar() {
             }).catch(erro => console.log(erro));
 
     };
+    
 
+    function Alterardescricao(evento) {
+        setIsLoading(true);
+
+        evento.preventDefault()
+
+        axios
+            .patch('http://localhost:5000/api/Consultas/prontuario/' + idConsulta, {
+                Descricao: descricao
+
+            }, {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
+                }
+            })
+            .then(resposta => {
+
+                if (resposta.status === 200) {
+                    Consultas();
+                    setIsLoading(false);
+                }
+            })
+            .catch(erro => console.log(erro), setInterval(() => {
+                setIsLoading(false)
+            }, 5000));
+    }
+
+   
 
 
     useEffect(Consultas, []);
 
-    function ativar(consulta) {
-        setIsLoading(true)
-        setIdConsulta(consulta.idConsulta)
-    }
-
-    function alterarDescricao(event) {
-        event.preventDefault()
-
-        axios.patch('http://localhost:5000/api/Consultas/prontuario/' + idConsulta,
-            {
-                descricao: descricaoAlterada
-            }, {
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
-            }
-        })
-            .then((response) => {
-                console.log(response)
-                if (response.status === 204) {
-                    console.log('Descrição alterada com sucesso!')
-                    setIsLoading(false)
-                    setDescricaoAlterada('')
-                    Consultas()
-                }
-            })
-            .catch(erro => console.log(erro))
-    }
 
 
     return (
@@ -100,33 +101,57 @@ export default function MeicoListar() {
                             <img src={medicos} alt="" />                         </div>
 
                     </div>
+                            <form className="prontuario" onSubmit={Alterardescricao}>
+                                <h3 className="h3">Alterar Prontuário</h3>
+                                <div className="inputs-select">
+                                <div className="div-consulta-label" >
+                                    <label className="consulta-label" >Consulta</label>
+                                    <select
+                                        name="consulta"
+                                        id="consulta"
+                                        value={idConsulta}
+                                        onChange={(campo) => setIdConsulta(campo.target.value)}
+                                    >
+                                        <option value='0'>Selecione a Consulta</option>
 
-                    {
+                                        {ListarConsultas.map((consulta) => {
+                                            return (
+                                                <option key={consulta.idConsulta} value={consulta.idConsulta}>
+                                                    {consulta.idPacienteNavigation.nomePaciente}/Data:{Intl.DateTimeFormat("pt-BR", {
+                                                    year: 'numeric', month: 'numeric', day: 'numeric',
+                                                    hour: 'numeric', minute: 'numeric', hour12: true
+                                                }).format(new Date(consulta.dataHora))}
+                                                </option>
+                                            )
+                                        })}
+                                    </select>
+                                </div>
+                                <div  className="div-label-descricao">
+                                    <label className="label-descricao">Descrição</label>
+                                    <input
+                                        type="text" 
+                                        name="descricao"
+                                        value={descricao}
+                                        onChange={(campo) => setDescricao(campo.target.value)}
+                                    />
+                                </div>
+                                </div>
+                                {isLoading && (
+                                    <button disabled className='btn-form-prontaurio' type = 'submit'>
+                                        Carregando...
+                                    </button>
+                                )}
+                                {!isLoading &&(
+                                    <button className='btn-form-prontaurio' type='submit'>
+                                        Alterar
+                                    </button>
+                                )}
+                            </form>
+                {
                         ListarConsultas.map((consulta) => {
 
                             return (
                                 <div className="juntar" key={consulta.idConsulta}>
-
-                                    <div>
-                                        {
-                                            setIsLoading === false &&
-                                            <button className="" onClick={() => ativar(consulta)}>Editar</button>
-                                        }
-                                        <form  onSubmit={alterarDescricao}>
-                                            <input type="text" value={descricaoAlterada} onChange={(campo) => setDescricaoAlterada(campo.target.value)} placeholder="Nova Descrição" />
-                                            {isLoading && (
-                                                <button disabled type='submit'>
-                                                    Carregando...
-                                                </button>
-                                            )}
-                                            {!isLoading && (
-                                                <button type='submit'>
-                                                    Alterar
-                                                </button>
-                                            )}
-                                        </form>
-                                    </div>
-
 
                                     <div className="section-lista">
 
@@ -157,9 +182,6 @@ export default function MeicoListar() {
                             )
                         })
                     }
-
-
-
 
 
                 </main>
