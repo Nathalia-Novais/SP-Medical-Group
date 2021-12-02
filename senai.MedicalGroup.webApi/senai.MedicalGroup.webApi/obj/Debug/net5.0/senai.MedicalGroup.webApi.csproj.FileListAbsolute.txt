@@ -204,3 +204,4 @@ C:\Users\User1\Desktop\SP-Medical-sGroup\senai.MedicalGroup.webApi\senai.Medical
 C:\Users\User1\Desktop\SP-Medical-sGroup\senai.MedicalGroup.webApi\senai.MedicalGroup.webApi\obj\Debug\net5.0\senai.MedicalGroup.webApi.xml
 C:\Users\User1\Desktop\SP-Medical-sGroup\senai.MedicalGroup.webApi\senai.MedicalGroup.webApi\obj\Debug\net5.0\senai.MedicalGroup.webApi.pdb
 C:\Users\User1\Desktop\SP-Medical-sGroup\senai.MedicalGroup.webApi\senai.MedicalGroup.webApi\obj\Debug\net5.0\senai.MedicalGroup.webApi.genruntimeconfig.cache
+C:\Users\52750417805\Desktop\SP-Medical-Group\senai.MedicalGroup.webApi\senai.MedicalGroup.webApi\obj\Debug\net5.0\senai.MedicalGroup.webApi.csproj.CopyComplete
