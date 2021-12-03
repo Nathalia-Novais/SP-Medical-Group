@@ -33,7 +33,7 @@ export default class Login extends Component {
         await AsyncStorage.setItem('Token',token);
 
         if (resposta.status === 200) {
-            console.warn(token)          
+            this.props.navigation.navigate('Medico')          
         }
         } 
 
