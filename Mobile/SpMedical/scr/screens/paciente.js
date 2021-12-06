@@ -13,7 +13,7 @@ import {
 import api from '../services/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default class Medico extends Component {
+export default class Paciente extends Component {
 
     constructor(props) {
         super(props);
@@ -27,7 +27,7 @@ export default class Medico extends Component {
             const token = await AsyncStorage.getItem('Token');
             if (token != null) {
 
-                const resposta = await api.get('/Consultas/medico', {
+                const resposta = await api.get('/Consultas/paciente', {
                     headers: {
                         Authorization: 'Bearer ' + token,
                     },
@@ -66,14 +66,16 @@ export default class Medico extends Component {
         return (
 
             <View style={styles.container}>
-                <FlatList
 
+                <FlatList
                     ListHeaderComponent={
                         <>
                             <View style={styles.titulo}>
                                 <Image style={styles.logo} source={require('../../assets/img/logo_listar.png')} />
                                 <Text style={styles.nome}>SP Medical Group</Text>
                             </View>
+
+
 
                             <TouchableOpacity
                                 style={styles.sair}
@@ -83,11 +85,13 @@ export default class Medico extends Component {
                             </TouchableOpacity>
 
                             <View style={styles.img_txt}>
-                                <Image style={styles.medico} source={require('../../assets/img/medico.png')} />
+                                <Image style={styles.medico} source={require('../../assets/img/paciente.png')} />
                                 <Text style={styles.textMC}>Minhas Consultas</Text>
                             </View>
+
                         </>
                     }
+
 
                     contentContainerStyle={styles.mainBodyContent}
                     data={this.state.listaMinhasConsultas}
@@ -95,8 +99,11 @@ export default class Medico extends Component {
                     renderItem={this.renderItem}
 
 
+
                 />
+
             </View>
+
 
         )
     }
@@ -147,8 +154,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(91,176,240,0.06)',
         // backgroundColor: 'rgba(24,133,113,0.07)',
         height: '100%',
-        // alignItems:'center',
-        // justifyContent:'center'
     },
 
     titulo: {
@@ -192,30 +197,14 @@ const styles = StyleSheet.create({
         fontFamily: 'OdorMeanChey'
     },
     medico: {
-        height: 80,
-        width: 60
+        height: 90,
+        width: 80
     },
-    // lista:{
-    //     backgroundColor:'white',
-    //     width:286,
 
-    // },
     mainBodyContent: {
         paddingTop: 30,
         paddingRight: 50,
         paddingLeft: 50,
-        // backgroundColor:'white',
-        // borderTopColor:'black',
-        // borderTopWidth:20
-
-        // shadowColor: "#000",
-        // shadowOffset: {
-        //     width: 0,
-        //     height: 8,
-        // },
-        // shadowOpacity: 0.46,
-        // shadowRadius: 11.14,
-
 
     },
 

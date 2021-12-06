@@ -8,6 +8,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Login from './scr/screens/login';
 import Medico from './scr/screens/medico'
+import Paciente from './scr/screens/paciente';
 
 const AuthStack = createStackNavigator();
 
@@ -26,6 +27,7 @@ export default function Stack() {
         >
         <AuthStack.Screen name="Login" component={Login} />
         <AuthStack.Screen name="Medico" component={Medico} />
+        <AuthStack.Screen name="Paciente" component={Paciente} />
       </AuthStack.Navigator>
     </NavigationContainer>
   );
