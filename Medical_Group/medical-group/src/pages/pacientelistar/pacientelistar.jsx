@@ -12,7 +12,7 @@ export default function PacienteListar() {
     const [ListarConsultas, setListarConsultas] = useState([]);
 
     function Consultas() {
-        axios('http://localhost:5000/api/consultas/paciente', {
+        axios('http://192.168.6.36:5000/api/consultas/paciente', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
             }

@@ -34,7 +34,7 @@ export default class cadastrar extends Component {
             IdSituacao: 3
         };
 
-        axios.post('http://localhost:5000/api/Consultas', consulta, {
+        axios.post('http://192.168.6.36:5000/api/Consultas', consulta, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
             },
@@ -62,7 +62,7 @@ export default class cadastrar extends Component {
 
     PacienteLista = () => {
 
-        axios('http://localhost:5000/api/Pacientes', {
+        axios('http://192.168.6.36:5000/api/Pacientes', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
             },
@@ -84,7 +84,7 @@ export default class cadastrar extends Component {
 
     MedicosLista = () => {
 
-        axios('http://localhost:5000/api/Medicos', {
+        axios('http://192.168.6.36:5000/api/Medicos', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
             },
@@ -199,7 +199,7 @@ export default class cadastrar extends Component {
                                     </select>
 
 
-                                    <input type="Date" placeholder="Data:"
+                                    <input type="datetime-local" placeholder="Data:"
                                      name="DataHora" value={this.DataHora}  
                                      onChange={this.atualizaStateCampo}  required />
 

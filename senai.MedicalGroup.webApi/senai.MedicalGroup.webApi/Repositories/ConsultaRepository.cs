@@ -84,7 +84,7 @@ namespace senai.MedicalGroup.webApi.Repositories
 
             if (consultaBuscada != null)
             {
-                if (consultaBuscada.Descricao != null)
+                if (statusP.Descricao != null)
                 {
                     consultaBuscada.Descricao = statusP.Descricao;
 

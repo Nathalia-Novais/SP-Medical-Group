@@ -12,7 +12,7 @@ export default function AdmListar() {
     const [ListarConsultas, setListarConsultas] = useState([]);
 
     function Consultas() {
-        axios('http://localhost:5000/api/Consultas', {
+        axios('http://192.168.6.36:5000/api/Consultas', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
             }
@@ -79,13 +79,13 @@ export default function AdmListar() {
                                         <ul>
                                         <li>Paciente: {consulta.idPacienteNavigation.nomePaciente}</li>
                                         <li>Médico: {consulta.idMedicoNavigation.nomeMedico} </li>
-                                        <li>Especialidade:{consulta.idMedicoNavigation.idEspecialidadeNavigation.nomeEspecialidade}</li>
-                                        <li>Data/Hora:{ Intl.DateTimeFormat("pt-BR", {
+                                        <li>Especialidade: {consulta.idMedicoNavigation.idEspecialidadeNavigation.nomeEspecialidade}</li>
+                                        <li>Data/Hora: { Intl.DateTimeFormat("pt-BR", {
                                                     year: 'numeric', month: 'numeric', day: 'numeric',
                                                     hour: 'numeric', minute: 'numeric', hour12: true
                                                 }).format(new Date(consulta.dataHora)) }</li>
-                                        <li>Descrição:{consulta.descricao}</li>
-                                        <li>Situação:{consulta.idSituacaoNavigation.tipoSituacao}</li>
+                                        <li>Descrição: {consulta.descricao}</li>
+                                        <li>Situação: {consulta.idSituacaoNavigation.tipoSituacao}</li>
 
 
                                         </ul>

@@ -12,8 +12,8 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'helena.souza@spmedicalgroup.com.br',
-      senha: '678',
+      email: 'adm@gmail.com',
+      senha: 'adm123',
       erroMensagem: '',
       isLoading: false,
     };
@@ -23,7 +23,7 @@ class Login extends Component {
     event.preventDefault()
     this.setState({ erroMensagem: '', isLoading: true });
 
-    axios.post('http://localhost:5000/api/Login', {
+    axios.post('http://192.168.6.36:5000/api/Login', {
       email: this.state.email,
       senha: this.state.senha,
     })
@@ -94,8 +94,8 @@ class Login extends Component {
                 <div className="item">
                   <p style={{ color: 'red' }}>{this.state.erroMensagem}</p>
 
-                  {this.state.isLoading === true && (<button className="btn btn-login" id="btn-login"> Loading </button>)}
-                  {this.state.isLoading === false && (<button className="btn btn-login" id="btn-login"
+                  {this.state.isLoading === true && (<button className=" btn-login" id="btn-login"> Loading </button>)}
+                  {this.state.isLoading === false && (<button className=" btn-login" id="btn-login"
                     disabled={
                       this.state.email === '' || this.state.senha === ''
                         ? 'none'

@@ -127,7 +127,6 @@ C:\Users\52750417805\Desktop\SP-Medical-Group\senai.MedicalGroup.webApi\senai.Me
 C:\Users\52750417805\Desktop\SP-Medical-Group\senai.MedicalGroup.webApi\senai.MedicalGroup.webApi\obj\Debug\net5.0\senai.MedicalGroup.webApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\52750417805\Desktop\SP-Medical-Group\senai.MedicalGroup.webApi\senai.MedicalGroup.webApi\obj\Debug\net5.0\senai.MedicalGroup.webApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\52750417805\Desktop\SP-Medical-Group\senai.MedicalGroup.webApi\senai.MedicalGroup.webApi\obj\Debug\net5.0\staticwebassets\senai.MedicalGroup.webApi.StaticWebAssets.Manifest.cache
-C:\Users\52750417805\Desktop\SP-Medical-Group\senai.MedicalGroup.webApi\senai.MedicalGroup.webApi\obj\Debug\net5.0\staticwebassets\senai.MedicalGroup.webApi.StaticWebAssets.xml
 C:\Users\52750417805\Desktop\SP-Medical-Group\senai.MedicalGroup.webApi\senai.MedicalGroup.webApi\obj\Debug\net5.0\scopedcss\bundle\senai.MedicalGroup.webApi.styles.css
 C:\Users\52750417805\Desktop\SP-Medical-Group\senai.MedicalGroup.webApi\senai.MedicalGroup.webApi\obj\Debug\net5.0\senai.MedicalGroup.webApi.RazorTargetAssemblyInfo.cache
 C:\Users\52750417805\Desktop\SP-Medical-Group\senai.MedicalGroup.webApi\senai.MedicalGroup.webApi\obj\Debug\net5.0\senai.MedicalGroup.webApi.dll

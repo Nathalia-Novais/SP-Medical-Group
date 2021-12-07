@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "268f7f17-505d-48e5-ad14-b0428d7a9ca8": {
+      "ProjectGuid": "268f7f17-505d-48e5-ad14-b0428d7a9ca8",
+      "DisplayName": "senai.MedicalGroup.webApi",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

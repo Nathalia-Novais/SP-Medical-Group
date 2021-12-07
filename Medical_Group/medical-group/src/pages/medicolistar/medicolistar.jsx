@@ -15,7 +15,7 @@ export default function MeicoListar() {
     const [isLoading, setIsLoading] = useState(false);
 
     function Consultas() {
-        axios('http://localhost:5000/api/Consultas/medico', {
+        axios('http://192.168.6.36:5000/api/Consultas/medico', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
             }
@@ -36,7 +36,7 @@ export default function MeicoListar() {
         evento.preventDefault()
 
         axios
-            .patch('http://localhost:5000/api/Consultas/prontuario/' + idConsulta, {
+            .patch('http://192.168.6.36:5000/api/Consultas/prontuario/' + idConsulta, {
                 Descricao: descricao
 
             }, {
@@ -67,17 +67,17 @@ export default function MeicoListar() {
         <div>
             <body className="cor-body">
                 <div>
-                    <header class="cabecalhoPrincipal">
-                        <div class="container">
-                            <div class="logo_e_letra">
+                    <header className="cabecalhoPrincipal">
+                        <div className="container">
+                            <div className="logo_e_letra">
                                 <img src={Logo} alt="Logo Sp Medical group" />
                                 <p>SP Medical Group</p>
                             </div>
 
 
-                            <nav class="cabecalhoPrincipal-nav">
+                            <nav className="cabecalhoPrincipal-nav">
                                 <img src={iconeMedico} alt="icone do medico" />
-                                <a>Área Do Médico</a>
+                                <a  className="cabecalhoPrincipal-a">Área Do Médico</a>
                                 <Link to="/"> <a className="sair" href="">Sair</a></Link>
                             </nav>
                         </div>
@@ -85,19 +85,19 @@ export default function MeicoListar() {
                 </div>
 
                 <main>
-                    <div class="titulo-e-imagem">
-                        <div class="titulo-linha">
-                            <h1 class="nome">Listagem</h1>
-                            <hr class="linha"></hr>
+                    <div className="titulo-e-imagem">
+                        <div className="titulo-linha">
+                            <h1 className="nome">Listagem</h1>
+                            <hr className="linha"></hr>
 
-                            <div class="titulo-linha-2">
+                            <div className="titulo-linha-2">
                                 <h1> Minhas Consultas</h1>
-                                <hr class="linha"></hr>
+                                <hr className="linha"></hr>
                             </div>
 
                         </div>
 
-                        <div class="medico-botao">
+                        <div className="medico-botao">
                             <img src={medicos} alt="" />                         </div>
 
                     </div>
@@ -129,6 +129,7 @@ export default function MeicoListar() {
                                 <div  className="div-label-descricao">
                                     <label className="label-descricao">Descrição</label>
                                     <input
+                                        className="descricao"
                                         type="text" 
                                         name="descricao"
                                         value={descricao}
@@ -159,13 +160,13 @@ export default function MeicoListar() {
                                             <ul>
                                                 <li>Paciente: {consulta.idPacienteNavigation.nomePaciente}</li>
                                                 <li>Médico: {consulta.idMedicoNavigation.nomeMedico} </li>
-                                                <li>Especialidade:{consulta.idMedicoNavigation.idEspecialidadeNavigation.nomeEspecialidade}</li>
-                                                <li>Data/Hora:{Intl.DateTimeFormat("pt-BR", {
+                                                <li>Especialidade: {consulta.idMedicoNavigation.idEspecialidadeNavigation.nomeEspecialidade}</li>
+                                                <li>Data/Hora: {Intl.DateTimeFormat("pt-BR", {
                                                     year: 'numeric', month: 'numeric', day: 'numeric',
                                                     hour: 'numeric', minute: 'numeric', hour12: true
                                                 }).format(new Date(consulta.dataHora))}</li>
-                                                <li>Descrição:{consulta.descricao}</li>
-                                                <li>Situação:{consulta.idSituacaoNavigation.tipoSituacao}</li>
+                                                <li>Descrição: {consulta.descricao}</li>
+                                                <li>Situação: {consulta.idSituacaoNavigation.tipoSituacao}</li>
 
                                             </ul>
                                             <img className="imagem" src={Imglista} alt="imagem de um estetoscópio" />

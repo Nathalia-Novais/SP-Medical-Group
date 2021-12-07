@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lTzIdcnnFYG/0yLyZUtrErPVPhqeLw1NWj/ZQFz6aSfGJ5dkdgOdEGvnDQ2fHGWbhxdhX7I1cIQH8y1i4ApFKw==",
+  "dgSpecHash": "5ja6gZf3mi5sV6ITnb1P1qWDmwdB/OtPRJYniKsvo4teG0X+vH1+DLbbqObr8ZFGppRJiFIUlDuATIUm3demPQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\52750417805\\Desktop\\SP-Medical-Group\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi.csproj",
   "expectedPackageFiles": [
@@ -143,7 +143,8 @@
     "C:\\Users\\52750417805\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\52750417805\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\52750417805\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\52750417805\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\52750417805\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\52750417805\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
   ],
   "logs": []
 }
