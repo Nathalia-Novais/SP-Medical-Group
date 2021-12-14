@@ -24,10 +24,10 @@ export default class Login extends Component {
         this.state = {
             // email: 'roberto.possarle@spmedicalgroup.com.br',
             // senha: '345'
-            email: 'henrique@gmail.com',
-            senha: '234'
             // email: '',
             // senha: ''
+            // email: 'henrique@gmail.com',
+            // senha: '234'
         };
     }
 
@@ -35,6 +35,7 @@ export default class Login extends Component {
         const resposta = await api.post('/Login', {
             email: this.state.email,
             senha: this.state.senha,
+
         })
 
         const token = resposta.data.token;
@@ -42,12 +43,18 @@ export default class Login extends Component {
         const role = jwt_decode(token).role
 
         if (resposta.status === 200) {
+            // this.setState(email = "" )
+            // this.setState(senha = "" )
         
              if (role == '2') {
                  this.props.navigation.navigate('Medico')
+                 
+
              }
              else if(role == '3') {
                  this.props.navigation.navigate('Paciente')
+                //  this.setState({ email = "" })
+                //  this.setState({ senha = "" })
              }
        
         }

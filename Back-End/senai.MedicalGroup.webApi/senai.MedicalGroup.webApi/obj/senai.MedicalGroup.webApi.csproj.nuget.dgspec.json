@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\52750417805\\Desktop\\SP-Medical-Group\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi.csproj": {}
+    "C:\\Users\\52750417805\\Desktop\\SP-Medical-Group\\Back-End\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\52750417805\\Desktop\\SP-Medical-Group\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi.csproj": {
+    "C:\\Users\\52750417805\\Desktop\\SP-Medical-Group\\Back-End\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\52750417805\\Desktop\\SP-Medical-Group\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi.csproj",
+        "projectUniqueName": "C:\\Users\\52750417805\\Desktop\\SP-Medical-Group\\Back-End\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi.csproj",
         "projectName": "senai.MedicalGroup.webApi",
-        "projectPath": "C:\\Users\\52750417805\\Desktop\\SP-Medical-Group\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi.csproj",
+        "projectPath": "C:\\Users\\52750417805\\Desktop\\SP-Medical-Group\\Back-End\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi.csproj",
         "packagesPath": "C:\\Users\\52750417805\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\52750417805\\Desktop\\SP-Medical-Group\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi\\obj\\",
+        "outputPath": "C:\\Users\\52750417805\\Desktop\\SP-Medical-Group\\Back-End\\senai.MedicalGroup.webApi\\senai.MedicalGroup.webApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\52750417805\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,6 +61,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.10, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.14.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
