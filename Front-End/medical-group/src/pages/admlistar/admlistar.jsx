@@ -12,7 +12,7 @@ export default function AdmListar() {
     const [ListarConsultas, setListarConsultas] = useState([]);
 
     function Consultas() {
-        axios('http://192.168.6.36:5000/api/Consultas', {
+        axios('http://192.168.0.109:5000/api/Consultas', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
             }

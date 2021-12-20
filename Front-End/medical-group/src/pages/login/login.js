@@ -14,6 +14,10 @@ class Login extends Component {
     this.state = {
       email: 'adm@gmail.com',
       senha: 'adm123',
+      // email: 'helena.souza@spmedicalgroup.com.br',
+      // senha: '678',
+      // email: 'henrique@gmail.com',
+      // senha: '234',
       erroMensagem: '',
       isLoading: false,
     };
@@ -23,7 +27,7 @@ class Login extends Component {
     event.preventDefault()
     this.setState({ erroMensagem: '', isLoading: true });
 
-    axios.post('http://192.168.6.36:5000/api/Login', {
+    axios.post('http://192.168.0.109:5000/api/Login', {
       email: this.state.email,
       senha: this.state.senha,
     })
@@ -62,6 +66,7 @@ class Login extends Component {
   atualizaStateCampo = (campo) => {
     this.setState({ [campo.target.name]: campo.target.value });
   };
+
 
 
   render() {

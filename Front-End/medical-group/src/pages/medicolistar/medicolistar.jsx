@@ -15,7 +15,7 @@ export default function MeicoListar() {
     const [isLoading, setIsLoading] = useState(false);
 
     function Consultas() {
-        axios('http://192.168.6.36:5000/api/Consultas/medico', {
+        axios('http://192.168.0.109:5000/api/Consultas/medico', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
             }
@@ -36,7 +36,7 @@ export default function MeicoListar() {
         evento.preventDefault()
 
         axios
-            .patch('http://192.168.6.36:5000/api/Consultas/prontuario/' + idConsulta, {
+            .patch('http://192.168.0.109:5000/api/Consultas/prontuario/' + idConsulta, {
                 Descricao: descricao
 
             }, {

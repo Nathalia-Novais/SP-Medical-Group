@@ -34,7 +34,7 @@ export default class cadastrar extends Component {
             IdSituacao: 3
         };
 
-        axios.post('http://192.168.6.36:5000/api/Consultas', consulta, {
+        axios.post('http://192.168.0.109:5000/api/Consultas', consulta, {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
             },
@@ -62,7 +62,7 @@ export default class cadastrar extends Component {
 
     PacienteLista = () => {
 
-        axios('http://192.168.6.36:5000/api/Pacientes', {
+        axios('http://192.168.0.109:5000/api/Pacientes', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
             },
@@ -84,7 +84,7 @@ export default class cadastrar extends Component {
 
     MedicosLista = () => {
 
-        axios('http://192.168.6.36:5000/api/Medicos', {
+        axios('http://192.168.0.109:5000/api/Medicos', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-login'),
             },
@@ -158,7 +158,7 @@ export default class cadastrar extends Component {
                                     <select
                                         required
                                         value={this.state.IdPaciente}
-                                        
+                                        className="formulario-c-select"
                                         onChange={this.atualizaStateCampo}
                                         name="IdPaciente"
                                     >
@@ -179,7 +179,7 @@ export default class cadastrar extends Component {
                                     <select 
 
                                         value={this.state.IdMedico}
-                                        
+                                        className="formulario-c-select"
                                         onChange={this.atualizaStateCampo}
                                         name="IdMedico"
                                         required >

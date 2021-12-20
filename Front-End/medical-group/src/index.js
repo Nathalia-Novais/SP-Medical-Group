@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { parseJwt, usuarioAutenticado } from './services/auth';
 
 import {
   Route,
@@ -18,16 +19,51 @@ import Paciente from './pages/pacientelistar/pacientelistar';
 import Medico from './pages/medicolistar/medicolistar';
 import CadastroAdm from './pages/cadastroadm/cadastroadm';
 
+const PermissaoAdm = ({ component: Component }) => (
+  <Route
+    render={(props) =>
+      usuarioAutenticado() && parseJwt().role === '1' ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="login" />
+      )
+    }
+  />
+);
+
+const PermissaoM = ({ component: Component }) => (
+  <Route
+    render={(props) =>
+      usuarioAutenticado() && parseJwt().role === '2' ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="login" />
+      )
+    }
+  />
+);
+const PermissaoP = ({ component: Component }) => (
+  <Route
+    render={(props) =>
+      usuarioAutenticado() && parseJwt().role === '3' ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="login" />
+      )
+    }
+  />
+);
+
 
 const routing = (
   <Router>
     <div>
     <Switch>
      <Route exact path="/" component={Login} />
-     <Route path="/admlistar" component={AdmListar} />
-     <Route path="/pacientelistar" component={Paciente} />
-     <Route path="/medicolistar" component={Medico} />
-     <Route path="/cadastroadm" component={CadastroAdm} />
+     <PermissaoAdm path="/admlistar" component={AdmListar} />
+     <PermissaoP path="/pacientelistar" component={Paciente} />
+     <PermissaoM path="/medicolistar" component={Medico} />
+     <PermissaoAdm path="/cadastroadm" component={CadastroAdm} />
      <Route path="/notFound" component={NotFound} />
      <Redirect to="/notFound" />
     </Switch>
