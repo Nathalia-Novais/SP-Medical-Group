@@ -60,9 +60,9 @@ const routing = (
     <div>
     <Switch>
      <Route exact path="/" component={Login} />
-     <PermissaoAdm path="/admlistar" component={AdmListar} />
-     <PermissaoP path="/pacientelistar" component={Paciente} />
-     <PermissaoM path="/medicolistar" component={Medico} />
+     <Route path="/admlistar" component={AdmListar} />
+     <Route path="/pacientelistar" component={Paciente} />
+     <Route path="/medicolistar" component={Medico} />
      <PermissaoAdm path="/cadastroadm" component={CadastroAdm} />
      <Route path="/notFound" component={NotFound} />
      <Redirect to="/notFound" />

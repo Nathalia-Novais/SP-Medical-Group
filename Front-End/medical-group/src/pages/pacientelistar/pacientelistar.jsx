@@ -12,19 +12,17 @@ export default function PacienteListar() {
     const [ListarConsultas, setListarConsultas] = useState([]);
 
     function Consultas() {
-        axios('http://192.168.0.109:5000/api/consultas/paciente', {
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('usuario-login')
-            }
-        })
+        axios.get('https://62055a43161670001741b99e.mockapi.io/CONSULTA')
             .then(response => {
-                if (response.status === 200) {
+               
                     setListarConsultas(response.data);
-                }
+                })
 
-            }).catch(erro => console.log(erro));
+           .catch(erro => console.log(erro));
 
     };
+
+  
 
     useEffect(Consultas, []);
 
@@ -79,15 +77,12 @@ export default function PacienteListar() {
                                         <ul>
 
 
-                                        <li>Paciente: {consulta.idPacienteNavigation.nomePaciente}</li>
-                                        <li>Médico: {consulta.idMedicoNavigation.nomeMedico} </li>
-                                        <li>Especialidade:{consulta.idMedicoNavigation.idEspecialidadeNavigation.nomeEspecialidade}</li>
-                                        <li>Data/Hora:{ Intl.DateTimeFormat("pt-BR", {
-                                                    year: 'numeric', month: 'numeric', day: 'numeric',
-                                                    hour: 'numeric', minute: 'numeric', hour12: true
-                                                }).format(new Date(consulta.dataHora)) }</li>
+                                        <li>Paciente:{consulta.idPacienteNavigation[0].nomePaciente}</li>
+                                        <li>Médico:{consulta.idMedicoNavigation[0].nomeMedico} </li>
+                                        {/* <li>Especialidade:{consulta.idMedicoNavigation.idEspecialidadeNavigation.nomeEspecialidade}</li> */}
+                                        <li>Data/Hora:{consulta.data_hora }</li>
                                         <li>Descrição:{consulta.descricao}</li>
-                                        <li>Situação:{consulta.idSituacaoNavigation.tipoSituacao}</li>
+                                        {/* <li>Situação:{consulta.idSituacaoNavigation.tipoSituacao}</li> */}
 
 
                                         </ul>
